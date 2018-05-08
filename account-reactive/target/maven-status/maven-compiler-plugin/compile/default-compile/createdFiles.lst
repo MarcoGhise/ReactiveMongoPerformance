@@ -1,0 +1,5 @@
+com\account\rest\AccountController.class
+com\account\domain\repositories\ReactiveAccountRepository.class
+com\account\ReactiveAccountRestApplication.class
+com\account\domain\entities\Account.class
+com\account\domain\enums\Currency.class
