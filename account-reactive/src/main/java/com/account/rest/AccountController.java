@@ -57,7 +57,7 @@ public class AccountController {
         Flux<Account> account = reactiveAccountRepository.findAll();
           
         return account;
-    }
+    } 
     
     @RequestMapping(value = "/stream", method = RequestMethod.GET, produces=MediaType.TEXT_EVENT_STREAM_VALUE )
     Flux<Account> findAllStreaming() {
