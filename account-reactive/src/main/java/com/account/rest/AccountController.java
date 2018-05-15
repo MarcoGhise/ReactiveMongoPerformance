@@ -49,7 +49,7 @@ public class AccountController {
     @RequestMapping(value = "/batch", method = RequestMethod.POST)
     Flux<Account> saveAll(@RequestBody Flux<Account> accounts) {
         return reactiveAccountRepository.saveAll(accounts);
-    }
+    }  
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     Flux<Account> findAll() {
