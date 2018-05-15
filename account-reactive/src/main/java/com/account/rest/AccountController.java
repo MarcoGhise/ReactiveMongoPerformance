@@ -4,7 +4,10 @@ import com.account.domain.entities.Account;
 import com.account.domain.enums.Currency;
 import com.account.domain.repositories.ReactiveAccountRepository;
 
+import java.time.Duration;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import reactor.core.publisher.Flux;
@@ -51,7 +54,15 @@ public class AccountController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     Flux<Account> findAll() {
     	
-        Flux<Account> account = reactiveAccountRepository.findAll().subscribeOn(Schedulers.elastic());
+        Flux<Account> account = reactiveAccountRepository.findAll();
+         
+        return account;
+    }
+    
+    @RequestMapping(value = "/stream", method = RequestMethod.GET, produces=MediaType.TEXT_EVENT_STREAM_VALUE )
+    Flux<Account> findAllStreaming() {
+    	
+        Flux<Account> account = reactiveAccountRepository.findAll().delayElements(Duration.ofSeconds(1));
          
         return account;
     }
