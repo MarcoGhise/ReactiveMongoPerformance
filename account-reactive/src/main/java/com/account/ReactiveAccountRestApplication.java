@@ -31,7 +31,7 @@ import reactor.util.function.Tuple2;
 @EnableAutoConfiguration
 @EnableReactiveMongoRepositories
 public class ReactiveAccountRestApplication implements CommandLineRunner {
-
+ 
 	@Autowired
 	ReactiveAccountRepository repository;
 	
