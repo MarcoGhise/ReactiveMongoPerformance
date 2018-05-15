@@ -28,7 +28,7 @@ public interface ReactiveAccountRepository extends ReactiveMongoRepository<Accou
     Flux<Account> findByCurrency(Currency currency);
     
     Mono<Account> findByAmount(Double ammount);
-    
+     
     @Tailable 
 	Flux<Account> findBy(); 
 
